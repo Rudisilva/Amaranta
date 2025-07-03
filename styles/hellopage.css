@@ -468,6 +468,7 @@ body {
         filter: blur(0px) !important;
         opacity: 1 !important;
         transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+   
     }
 
     .h-section:not(.h-active) .h-content-inner {
@@ -476,13 +477,14 @@ body {
         width: 100%;
         transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
         border-color: #06060600;
+             padding: 0;
     }
 
 
     .h-section:not(.h-active) .h-title {
-        font-size: 45px;
+        font-size: 40px;
         filter: blur(0px);
-   
+        
         padding-top: 20rem;
         color: #ffffff55;
         transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,0 +1,212 @@
+/* Бургер */
+.burger {
+    display: none;
+    /* по умолчанию скрыт */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    /* чтобы поверх */
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 2px;
+}
+
+/* Мобильное меню - скрыто по умолчанию */
+.mobile-menu {
+    position: fixed;
+    top: 90px;
+    /* высота header */
+    right: -70%;
+    /* за экраном справа */
+    width: 70%;
+    height: 100vh;
+    background-color: #fffffe;
+
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.131);
+    transition: right 0.3s ease;
+    z-index: 7;
+    overflow-y: auto;
+
+}
+
+.mobile-menu a {
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.mobile-menu a.active {
+    color: #aa8853;
+}
+
+.mobile-menu a .arrow {
+    font-size: 1.3rem;
+    color: #aa8853;
+}
+
+/* Открытое меню */
+.mobile-menu.open {
+    right: 0;
+}
+
+
+.header {
+
+    position: fixed;
+    /* <-- поменяли absolute на fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: transparent;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.header.scrolled {
+    background: #fffffe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* вот это */
+    flex-wrap: nowrap;
+    width: 50%;
+    padding: 0 1rem;
+    /* немного отступа по краям */
+}
+
+.header-logo {
+    flex: 1;
+    /*центрировать по вертикали  */
+    font-family: 'Cormorant', serif;
+    font-weight: 300;
+
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: rgb(243, 243, 243);
+}
+
+.header-navigation {
+
+    display: flex;
+    flex: 2;
+   
+}
+
+.header-navigation nav {
+    display: flex;
+
+}
+
+
+.header-navigation a {
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.9rem;
+    margin: 1.5rem;
+    text-decoration: none;
+    color: rgb(249, 249, 249);
+    transition: 0.2s;
+}
+
+
+/* Стандартные стили */
+.header-navigation a {
+    color: rgb(249, 249, 249);
+    transition: color 0.3s;
+}
+
+.header-navigation a.active {
+    color: #aa8853;
+}
+
+/* Когда хедер в состоянии скролла */
+.header.scrolled {
+    background: #fffffe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header.scrolled .header-logo {
+    color: black;
+}
+
+.header.scrolled .header-navigation a {
+    color: black;
+}
+
+/* Если ссылка активна и хедер в состоянии скролла */
+.header.scrolled .header-navigation a.active {
+    color: #aa8853;
+    /* или другой цвет, если нужно */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* расстояние между языком и бургером */
+}
+
+.custom-select {
+    position: relative;
+    user-select: none;
+    font-family: inherit;
+}
+
+.custom-select .selected {
+    background: #383838;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.custom-select .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1e1e1e;
+
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.custom-select .options div {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+}
+
+.custom-select .options div:hover {
+    background: #333;
+}

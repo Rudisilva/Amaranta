@@ -1,0 +1,508 @@
+/* Импорт шрифтов */
+@font-face {
+    font-family: 'Cormorant';
+    src: url('/fonts/CormorantSC-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('/fonts/CormorantSC-Medium.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('/fonts/CormorantSC-Regular.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('/fonts/CormorantSC-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('/fonts/CormorantSC-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    overflow: hidden;
+    background-color: #060606;
+    height: 100vh;
+    touch-action: pan-y;
+}
+
+/* Основной контейнер */
+.h-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Секции */
+.h-section {
+    position: relative;
+    height: 100%;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.h-section-left {
+    width: 50%;
+    z-index: 2;
+}
+
+.h-section-right {
+    width: 50%;
+    z-index: 2;
+}
+
+/* Фон */
+.h-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+/* Анимации изображений */
+.h-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    transform: scale(1.05);
+}
+
+.h-section.h-active .h-bg-image {
+    transform: scale(1.1);
+}
+
+.h-section-left.h-active .h-bg-image {
+    transform: scale(1.1) translateX(-10px);
+}
+
+.h-section-right.h-active .h-bg-image {
+    transform: scale(1.1) translateX(10px);
+}
+
+
+
+.h-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.823);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Контент */
+.h-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+
+}
+
+.h-content-inner {
+    text-align: center;
+    max-width: 500px;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* background-color: #fafafa; */
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    padding: 3rem;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.h-content-bottom {
+
+    display: block;
+    /* Используем flexbox */
+    justify-content: left;
+    /* Выравниваем содержимое по горизонтали */
+    align-items: left;
+    /* Выравниваем содержимое по вертикали */
+    text-align: left;
+    /* Центрируем текст */
+    padding: 1rem;
+}
+
+.h-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 0.9;
+    letter-spacing: 1px;
+    text-align: left;
+    white-space: nowrap;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.h-description {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding-bottom: 5rem;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.h-container.h-hovering .h-section:not(.h-active) .h-button {
+    pointer-events: none;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Кнопка (используем стили из main.css) */
+.h-button {
+
+    border-radius: 0%;
+    border: solid 0;
+    font-family: 'Mulish';
+    font-weight: 300;
+    font-size: 1rem;
+    background-color: #dfaa56;
+    text-decoration: none;
+
+    padding: 1rem 2rem;
+    color: #fff;
+
+
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.h-button:hover {
+    color: #060606;
+    background-color: #fff;
+
+}
+
+/* Центральная зона */
+.h-center-zone {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    z-index: 4;
+    cursor: default;
+}
+
+/* Эффекты при наведении */
+
+
+
+.h-section:not(.h-active) .h-overlay {
+    background: rgba(0, 0, 0, 0.933);
+
+
+}
+
+
+
+.h-section.h-active .h-overlay {
+    background: rgba(0, 0, 0, 0.727) !important;
+    backdrop-filter: blur(2px) saturate(0.7) !important;
+
+}
+
+.h-section:not(.h-active) .h-content-inner {
+    filter: blur(1px);
+    opacity: 0.7;
+
+}
+
+.h-section.h-active .h-content-inner {
+    /* filter: blur(0px) !important;
+    opacity: 1 !important;
+    backdrop-filter: blur(40px) brightness(2.4) saturate(0) !important;
+    border-radius: 45px 0px 45px 0 ;
+     */
+
+    backdrop-filter: blur(20px) brightness(0.6) saturate(0.8) !important;
+    border-radius: 45px 0px 45px 0;
+}
+
+/* Состояние по умолчанию - обе части активны */
+.h-container:not(.h-hovering) .h-section .h-content-inner {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+
+}
+
+.h-container:not(.h-hovering) .h-section .h-overlay {
+    background: rgba(0, 0, 0, 0.952) !important;
+
+
+}
+
+/* Состояния секций */
+.h-section-left.h-expanded {
+    width: 70%;
+}
+
+.h-section-right.h-expanded {
+    width: 70%;
+}
+
+.h-section-left.h-collapsed {
+    width: 30%;
+}
+
+.h-section-right.h-collapsed {
+    width: 30%;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .h-container {
+        flex-direction: column;
+        touch-action: pan-x;
+    }
+
+    .h-section {
+        width: 100% !important;
+        height: 50%;
+    }
+
+    .h-section-left {
+        z-index: 2;
+    }
+
+    .h-section-right {
+        z-index: 2;
+    }
+
+    .h-center-zone {
+        left: 0;
+        top: 45%;
+        width: 100%;
+        height: 10%;
+    }
+
+    /* Мобильные состояния */
+    .h-section-left.h-expanded {
+        height: 70%;
+        width: 100%;
+    }
+
+    .h-section-right.h-expanded {
+        height: 70%;
+        width: 100%;
+    }
+
+    .h-section-left.h-collapsed {
+        height: 30%;
+        width: 100%;
+    }
+
+    .h-section-right.h-collapsed {
+        height: 30%;
+        width: 100%;
+    }
+
+    .h-content {
+        padding: 1rem;
+    }
+
+    .h-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        margin-bottom: 1rem;
+
+    }
+
+    .h-description {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .h-button {
+        padding: 1.2rem 3.4rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* Дополнительные анимации */
+.h-bg-image.h-parallax-left {
+    transform: translateX(-20px);
+}
+
+.h-bg-image.h-parallax-right {
+    transform: translateX(20px);
+}
+
+/* Плавное появление */
+.h-content-inner {
+    opacity: 0;
+    animation: h-fadeIn 1s ease-out 0.5s forwards;
+
+}
+
+@keyframes h-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Глубина и тени */
+.h-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+    z-index: 5;
+}
+
+.h-section-right::before {
+    left: 0;
+    right: auto;
+}
+
+@media (max-width: 768px) {
+    .h-section::before {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+
+    .h-center-zone {
+        left: 0;
+        top: 45%;
+        width: 100%;
+        height: 10%;
+        z-index: 4;
+        pointer-events: none;
+        /* <--- ДОБАВЬТЕ ЭТУ СТРОКУ */
+    }
+
+    .h-section-right::before {
+        top: 0;
+        bottom: auto;
+    }
+
+
+    .h-section.h-active .h-content-inner {
+        filter: blur(0px) !important;
+        opacity: 1 !important;
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .h-section:not(.h-active) .h-content-inner {
+        filter: blur(0px) !important;
+        border-width: 0px;
+        width: 100%;
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        border-color: #06060600;
+    }
+
+
+    .h-section:not(.h-active) .h-title {
+        font-size: 70px;
+        filter: blur(0px);
+   
+        padding-top: 20rem;
+        color: #ffffff55;
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .h-section:not(.h-active) .h-description {
+        opacity: 0;
+    }
+
+    .h-section:not(.h-active) .h-button {
+        filter: opacity(0);
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .h-section-left.h-active .h-bg-image {
+        transform: scale(1.1) translateY(-10px);
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .h-section-right.h-active .h-bg-image {
+        transform: scale(1.1) translateY(10px);
+    }
+}
